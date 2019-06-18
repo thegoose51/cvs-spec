@@ -1,0 +1,77 @@
+# Project information
+site_name: "CVS Specification"
+site_description: "CVS Version Control Specification"
+site_author: "Cody James May"
+site_url: "https://thegoose51.github.io/cvs-spec/"
+
+# Repository
+repo_name: "thegoose51/cvs-spec"
+repo_url: "https://github.com/thegoose51/cvs-spec"
+
+# Copyright
+copyright: "Copyright &copy; 2019 Cody May | Copyright &copy; 2005-2006 Derek Robert Price & Ximbiot | Copyright &copy; 1998 Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111, USA"
+
+# License
+license: "license.md"
+
+# Configuration
+theme:
+  name: "material"
+  palette:
+    primary: "deep-purple"
+    accent: "pink"
+  font:
+    text: "Roboto"
+    code: "Roboto Mono"
+  logo:
+    icon: "local_bar"
+  favicon: "img/favicon.ico"
+
+google_analytics:
+  - "UA-142288438-1"
+  - "auto"
+
+# Customization
+extra:
+  manifest: "manifest.json"
+  social:
+    - type: "github"
+      link: "https://github.com/thegoose51"
+extra_javascript:
+  - "extra.js"
+markdown_extensions:
+  - toc:
+      permalink: "#"
+  - admonition
+  - codehilite:
+      linenums: true
+  - footnotes
+  - meta
+plugins:
+  - search
+  - minify:
+      minify_html: true
+      minify_js: true
+
+# Side Navigation
+nav:
+  - Home: "index.md"
+  - Manual:
+      - Usage:
+          - Overview: "man-overview.md"
+          - Repository: "man-repository.md"
+          - Starting a New Project: "man-new-project.md"
+          - Revisions: "man-revisions.md"
+          - Branching and Merging: "man-branching-merging.md"
+          - Recursive Behavior: "man-recursive.md"
+          - Adding and Removing: "man-adding-removing.md"
+          - History Browsing: "man-history.md"
+  - Client/Server Spec:
+      - Introduction: "server-introduction.md"
+      - Goals: "server-goals.md"
+      - Connection and Authentication: "server-conn-auth.md"
+      - Password Scrambling: "server-password.md"
+      - Protocol: "server-protocol.md"
+      - Protocol Notes: "server-protocol-notes.md"
+  - GNU Public License: "license.md"
+  # (?<!\$.|\$)cvs
