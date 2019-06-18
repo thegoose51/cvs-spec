@@ -1,0 +1,21 @@
+{
+  "short_name": "CVS Spec",
+  "name": "CVS Client/Server Spec",
+  "icons": [
+    {
+      "src": "/img/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/cvs-server-spec/",
+  "background_color": "#673ab7",
+  "display": "standalone",
+  "scope": "/cvs-server-spec/",
+  "theme_color": "#673ab7"
+}
