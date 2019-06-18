@@ -11,9 +11,6 @@ repo_url: "https://github.com/thegoose51/cvs-spec"
 # Copyright
 copyright: "Copyright &copy; 2019 Cody May | Copyright &copy; 2005-2006 Derek Robert Price & Ximbiot | Copyright &copy; 1998 Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111, USA"
 
-# License
-license: "license.md"
-
 # Configuration
 theme:
   name: "material"
@@ -37,8 +34,6 @@ extra:
   social:
     - type: "github"
       link: "https://github.com/thegoose51"
-extra_javascript:
-  - "extra.js"
 markdown_extensions:
   - toc:
       permalink: "#"
@@ -66,6 +61,25 @@ nav:
           - Recursive Behavior: "man-recursive.md"
           - Adding and Removing: "man-adding-removing.md"
           - History Browsing: "man-history.md"
+      - CVS and the Real World:
+          - Binary Files: "man-binary-files.md"
+          - Multiple Developers: "man-mult-developers.md"
+          - Revision Management: "man-revision-management.md"
+          - Keyword Substitution: "man-keyword-substitution.md"
+          - Tracking Sources: "man-tracking-sources.md"
+          - Builds: "man-builds.md"
+          - Special Files: "man-special-files.md"
+      - References:
+          - CVS Commands: "man-cvs-commands.md"
+          - Invoking CVS: "man-invoking-cvs.md"
+          - Administrative Files: "man-admin-files.md"
+          - Environment Variables: "man-env.md"
+          - Compatibility: "man-compatibility.md"
+          - Troubleshooting: "man-troubleshooting.md"
+          - Credits: "man-credits.md"
+          - Bugs: "man-bugs.md"
+          - CVS Command List: "man-cvs-command-list.md"
+          - Index: "man-index.md"
   - Client/Server Spec:
       - Introduction: "server-introduction.md"
       - Goals: "server-goals.md"

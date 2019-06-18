@@ -15,26 +15,26 @@
 
 ### CVS and the Real World
 
-- Binary files: CVS can handle binary files
-- Multiple developers: How CVS helps a group of developers
-- Revision management: Policy questions for revision management
-- Keyword substitution: CVS can include the revision inside the file
-- Tracking sources: Tracking third-party sources
-- Builds: Issues related to CVS and builds
-- Special Files: Devices, links and other non-regular files
+- [Binary Files](man-binary-files.md): CVS can handle binary files
+- [Multiple Developers](man-mult-developers.md): How CVS helps a group of Developers
+- [Revision Management](man-revision-management.md): Policy questions for revision management
+- [Keyword Substitution](man-keyword-substitution.md): CVS can include the revision inside the file
+- [Tracking Sources](man-tracking-sources.md): Tracking third-party sources
+- [Builds](man-builds.md): Issues related to CVS and builds
+- [Special Files](man-special-files.md): Devices, links and other non-regular files
 
 ### References
 
-- CVS commands: CVS commands share some things
-- Invoking CVS: Quick reference to CVS commands
-- Administrative files: Reference manual for the Administrative files
-- Environment variables: All environment variables which affect CVS
-- Compatibility: Upgrading CVS versions
-- Troubleshooting: Some tips when nothing works
-- Credits: Some of the contributors to this manual
-- BUGS: Dealing with bugs in CVS or this manual
-- CVS command list: Alphabetical list of all CVS commands
-- Index: Index
+- [CVS Commands](man-cvs-commands.md): CVS commands share some things
+- [Invoking CVS](man-invoking-cvs.md): Quick reference to CVS commands
+- [Administrative Files](man-admin-files.md): Reference manual for the Administrative files
+- [Environment Variables](man-env.md): All environment variables which affect CVS
+- [Compatibility](man-compatibility.md): Upgrading CVS versions
+- [Troubleshooting](man-troubleshooting.md): Some tips when nothing works
+- [Credits](man-credits.md): Some of the contributors to this manual
+- [Bugs](man-bugs.md): Dealing with bugs in CVS or this manual
+- [CVS Command List](man-cvs-command-list.md): Alphabetical list of all CVS commands
+- [Index](man-index.md): Index
 
 ## CVS Client/Server
 
