@@ -9,7 +9,7 @@ repo_name: "thegoose51/cvs-spec"
 repo_url: "https://github.com/thegoose51/cvs-spec"
 
 # Copyright
-copyright: "Copyright &copy; 2019 Cody May | Copyright &copy; 2005-2006 Derek Robert Price & Ximbiot | Copyright &copy; 1998 Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111, USA"
+copyright: "Copyright &copy; 2019 Cody May | Copyright &copy; 2005-2006 Derek Robert Price & Ximbiot<br>Copyright &copy; 1998 Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111, USA"
 
 # Configuration
 theme:

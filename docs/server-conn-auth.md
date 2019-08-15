@@ -60,6 +60,6 @@ If the client wishes to merely authenticate without starting the **`cvs`** proto
 
 Another mechanism is GSSAPI authentication. GSSAPI is a generic interface to security services such as kerberos. GSSAPI is specified in RFC2078 (GSSAPI version 2) and RFC1508 (GSSAPI version 1); we are not aware of differences between the two which affect the protocol in incompatible ways, so we make no attempt to specify one version or the other. The procedure here is to start with `BEGIN GSSAPI REQUEST`. GSSAPI authentication information is then exchanged between the client and the server. Each packet of information consists of a two byte big endian length, followed by that many bytes of data. After the GSSAPI authentication is complete, the server continues with the responses described above (`I LOVE YOU`, etc.).
 
-## future possibilities
+## Future Possibilities
 
 There are nearly an unlimited number of ways to connect and authenticate. One might want to allow access based on IP address (similar to the usual rsh protocol but with different/no restrictions on ports < 1024), to adopt mechanisms such as Pluggable Authentication Modules (PAM), to allow users to run their own servers under their own usernames without root access, or any number of other possibilities. The way to add future mechanisms, for the most part, should be to continue to use port 2401, but to use different strings in place of `BEGIN AUTH REQUEST`.

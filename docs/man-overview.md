@@ -8,7 +8,7 @@ If you are already familiar with **`cvs`** and are just trying to learn a partic
 
 - [What is cvs](#what-is-cvs)?: What you can do with **`cvs`**
 - [What is cvs not](#what-is-cvs-not)?: Problems **`cvs`** doesn't try to solve
-- [A sample session](#a-Sample-Session): A tour of basic **`cvs`** usage
+- [A sample session](#a-sample-session): A tour of basic **`cvs`** usage
 
 ## What is cvs
 
