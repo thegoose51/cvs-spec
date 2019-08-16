@@ -13,9 +13,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/cvs-server-spec/",
+  "start_url": "/cvs-spec/",
   "background_color": "#673ab7",
   "display": "standalone",
-  "scope": "/cvs-server-spec/",
+  "scope": "/cvs-spec/",
   "theme_color": "#673ab7"
 }
