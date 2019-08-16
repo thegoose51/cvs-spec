@@ -7,9 +7,9 @@ It is typical, early in the connection, for the client to transmit a _`valid-res
 **General protocol conventions**:
 
 - [Entries Lines](#entries-lines): Transmitting RCS data
-- File Modes: Read, write, execute, and possibly more...
-- Filenames: Conventions regarding filenames
-- File transmissions: How file contents are transmitted
+- [File Modes](#file-modes): Read, write, execute, and possibly more...
+- [Filenames](#conventions-regarding-transmission-of-file-names): Conventions regarding filenames
+- [File transmissions](#file-transmissions): How file contents are transmitted
 - Strings: Strings in various requests and responses
 - Dates: Times and dates
 
@@ -48,23 +48,29 @@ _`options`_ signifies the keyword expansion options (for example `-ko`). In an `
 
 A mode is any number of repetitions of
 
-     mode-type = data
-separated by `,'.
+```bash
+mode-type = data
+```
 
-mode-type is an identifier composed of alphanumeric characters. Currently specified: `u' for user, `g' for group, `o' for other (see below for discussion of whether these have their POSIX meaning or are more loose). Unrecognized values of mode-type are silently ignored.
+separated by `,`.
 
-data consists of any data not containing `,', `\0' or `\n'. For `u', `g', and `o' mode types, data consists of alphanumeric characters, where `r' means read, `w' means write, `x' means execute, and unrecognized letters are silently ignored.
+_`mode-type`_ is an identifier composed of alphanumeric characters. Currently specified: `u` for user, `g` for group, `o` for other (see below for discussion of whether these have their POSIX meaning or are more loose). Unrecognized values of _`mode-type`_ are silently ignored.
 
-The two most obvious ways in which the mode matters are: (1) is it writeable? This is used by the developer communication features, and is implemented even on OS/2 (and could be implemented on DOS), whose notion of mode is limited to a readonly bit. (2) is it executable? Unix CVS users need CVS to store this setting (for shell scripts and the like). The current CVS implementation on unix does a little bit more than just maintain these two settings, but it doesn't really have a nice general facility to store or version control the mode, even on unix, much less across operating systems with diverse protection features. So all the ins and outs of what the mode means across operating systems haven't really been worked out (e.g. should the VMS port use ACLs to get POSIX semantics for groups?).
+_`data`_ consists of any data not containing `,`, `\0` or `\n`. For `u`, `g`, and `o` mode types, data consists of alphanumeric characters, where `r` means read, `w` means write, `x` means execute, and unrecognized letters are silently ignored.
 
-Next: File transmissions, Previous: File Modes, Up: Protocol
-5.3 Conventions regarding transmission of file names
-In most contexts, `/' is used to separate directory and file names in filenames, and any use of other conventions (for example, that the user might type on the command line) is converted to that form. The only exceptions might be a few cases in which the server provides a magic cookie which the client then repeats verbatim, but as the server has not yet been ported beyond unix, the two rules provide the same answer (and what to do if future server ports are operating on a repository like e:/foo or CVS_ROOT:[FOO.BAR] has not been carefully thought out).
+The two most obvious ways in which the mode matters are:
 
-Characters outside the invariant ISO 646 character set should be avoided in filenames. This restriction may need to be relaxed to allow for characters such as `[' and `]' (see above about non-unix servers); this has not been carefully considered (and currently implementations probably use whatever character sets that the operating systems they are running on allow, and/or that users specify). Of course the most portable practice is to restrict oneself further, to the POSIX portable filename character set as specified in POSIX.1.
+1. Is it writeable? This is used by the developer communication features, and is implemented even on OS/2 (and could be implemented on DOS), whose notion of mode is limited to a readonly bit.
+1. Is it executable? Unix CVS users need CVS to store this setting (for shell scripts and the like). The current CVS implementation on unix does a little bit more than just maintain these two settings, but it doesn't really have a nice general facility to store or version control the mode, even on unix, much less across operating systems with diverse protection features. So all the ins and outs of what the mode means across operating systems haven't really been worked out (e.g. should the VMS port use ACLs to get POSIX semantics for groups?).
 
-Next: Strings, Previous: Filenames, Up: Protocol
-5.4 File transmissions
+## Conventions Regarding Transmission of File Names
+
+In most contexts, `/` is used to separate directory and file names in filenames, and any use of other conventions (for example, that the user might type on the command line) is converted to that form. The only exceptions might be a few cases in which the server provides a magic cookie which the client then repeats verbatim, but as the server has not yet been ported beyond unix, the two rules provide the same answer (and what to do if future server ports are operating on a repository like `e:/foo` or `CVS_ROOT:[FOO.BAR]` has not been carefully thought out).
+
+Characters outside the invariant ISO 646 character set should be avoided in filenames. This restriction may need to be relaxed to allow for characters such as `[` and `]` (see above about non-unix servers); this has not been carefully considered (and currently implementations probably use whatever character sets that the operating systems they are running on allow, and/or that users specify). Of course the most portable practice is to restrict oneself further, to the POSIX portable filename character set as specified in POSIX.1.
+
+## File Transmissions
+
 File contents (noted below as file transmission) can be sent in one of two forms. The simpler form is a number of bytes, followed by a linefeed, followed by the specified number of bytes of file contents. These are the entire contents of the specified file. Second, if both client and server support `gzip-file-contents', a `z' may precede the length, and the `file contents' sent are actually compressed with `gzip' (RFC1952/1951) compression. The length specified is that of the compressed version of the file.
 
 In neither case are the file content followed by any additional data. The transmission of a file will end with a linefeed iff that file (or its compressed form) ends with a linefeed.

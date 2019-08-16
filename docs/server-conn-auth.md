@@ -4,11 +4,11 @@ Connection and authentication occurs before the CVS protocol itself is started. 
 
 ## server
 
-If the client has a way to execute commands on the server, and provide input to the commands and output from them, then it can connect that way. This could be the usual rsh (port 514) protocol, Kerberos rsh, SSH, or any similar mechanism. The client may allow the user to specify the name of the server program; the default is **`cvs`**. It is invoked with one argument, `server`. Once it invokes the server, the client proceeds to start the **`cvs`** protocol.
+If the client has a way to execute commands on the server, and provide input to the commands and output from them, then it can connect that way. This could be the usual rsh (port 514) protocol, Kerberos rsh, SSH, or any similar mechanism. The client may allow the user to specify the name of the server program; the default is **`cvs`**. It is invoked with one argument, `server`. Once it invokes the server, the client proceeds to start the **cvs** protocol.
 
 ## kserver
 
-The kerberized server listens on a port (in the current implementation, by having inetd call `cvs kserver`) which defaults to 1999. The client connects, sends the usual kerberos authentication information, and then starts the **`cvs`** protocol.
+The kerberized server listens on a port (in the current implementation, by having inetd call `cvs kserver`) which defaults to 1999. The client connects, sends the usual kerberos authentication information, and then starts the **cvs** protocol.
 
 !!! Note
     Port 1999 is officially registered for another use, and in any event one cannot register more than one port for CVS, so GSS-API (see below) is recommended instead of kserver as a way to support kerberos.
@@ -25,7 +25,7 @@ The pserver server listens on a port (in the current implementation, by having i
 - the password trivially encoded (see Password scrambling), a linefeed,
 - the string `END AUTH REQUEST`, and a linefeed.
 
-The client must send the identical string for cvs root both here and later in the Root request of the cvs protocol itself. Servers are encouraged to enforce this restriction. The possible server responses (each of which is followed by a linefeed) are the following. Note that although there is a small similarity between this authentication protocol and the **`cvs`** protocol, they are separate.
+The client must send the identical string for cvs root both here and later in the Root request of the cvs protocol itself. Servers are encouraged to enforce this restriction. The possible server responses (each of which is followed by a linefeed) are the following. Note that although there is a small similarity between this authentication protocol and the **cvs** protocol, they are separate.
 
 `I LOVE YOU`
 
@@ -52,7 +52,7 @@ The authentication fails. After sending this response, the server may close the 
 !!! note
     _`text`_ for this response, or the _`text`_ in an `E` response, is not designed for machine parsing. More vigorous use of code, or future extensions, will be needed to prove a cleaner machine-parseable indication of what the error was.
 
-If the client wishes to merely authenticate without starting the **`cvs`** protocol, the procedure is the same, except:
+If the client wishes to merely authenticate without starting the **cvs** protocol, the procedure is the same, except:
 
 - `BEGIN AUTH REQUEST` is replaced with `BEGIN VERIFICATION REQUEST`,
 - `END AUTH REQUEST` is replaced with `END VERIFICATION REQUEST`,
